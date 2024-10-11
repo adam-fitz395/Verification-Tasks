@@ -1,0 +1,2 @@
+public class FitzpatrickAdamTestTask1 {
+}
