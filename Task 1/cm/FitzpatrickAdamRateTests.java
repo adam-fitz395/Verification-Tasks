@@ -33,18 +33,17 @@ public class FitzpatrickAdamRateTests {
     void validReducedPeriods() {
         cm.CarParkKind kind = cm.CarParkKind.STUDENT;
 
-        // Creating valid reduced and normal periods
         ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
         reducedPeriods.add(new cm.Period(6, 10));
 
         ArrayList<cm.Period> normalPeriods = new ArrayList<>();
         normalPeriods.add(new cm.Period(10, 12));
 
-        // Initializing BigDecimal rates
+      
         BigDecimal normalRate = new BigDecimal(7);
         BigDecimal reducedRate = new BigDecimal(3);
 
-        // Creating a Rate object
+    
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
     }
 
@@ -52,18 +51,18 @@ public class FitzpatrickAdamRateTests {
     void validNormalPeriods() {
         cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
 
-        // Creating valid reduced and normal periods
+     
         ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
         reducedPeriods.add(new cm.Period(9, 11));
 
         ArrayList<cm.Period> normalPeriods = new ArrayList<>();
         normalPeriods.add(new cm.Period(15, 17));
 
-        // Initializing BigDecimal rates
+       
         BigDecimal normalRate = new BigDecimal(9);
         BigDecimal reducedRate = new BigDecimal(6);
 
-        // Creating a Rate object
+  
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
     }
 
@@ -71,7 +70,7 @@ public class FitzpatrickAdamRateTests {
     void normalRateLessThanEqualTen() {
         cm.CarParkKind kind = cm.CarParkKind.VISITOR;
 
-        // Creating valid reduced and normal periods
+    
         ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
         reducedPeriods.add(new cm.Period(1, 3));
         reducedPeriods.add(new cm.Period(18, 20));
@@ -80,11 +79,11 @@ public class FitzpatrickAdamRateTests {
         normalPeriods.add(new cm.Period(4, 9));
         normalPeriods.add(new Period(14, 17));
 
-        // Initializing BigDecimal rates
+   
         BigDecimal normalRate = new BigDecimal(10);
         BigDecimal reducedRate = new BigDecimal(0);
 
-        // Creating a Rate object
+   
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
     }
 
@@ -92,18 +91,18 @@ public class FitzpatrickAdamRateTests {
     void normalRateGreaterThanEqualZero() {
         cm.CarParkKind kind = cm.CarParkKind.STUDENT;
 
-        // Creating valid reduced and normal periods
+        
         ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
         reducedPeriods.add(new cm.Period(3, 6));
 
         ArrayList<cm.Period> normalPeriods = new ArrayList<>();
         normalPeriods.add(new cm.Period(8, 12));
 
-        // Initializing BigDecimal rates
+      
         BigDecimal normalRate = new BigDecimal(4);
         BigDecimal reducedRate = new BigDecimal(1);
 
-        // Creating a Rate object
+    
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
     }
 
@@ -335,7 +334,7 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(12, 14);
-        // Execute
+    
         BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal(12), result);
@@ -359,7 +358,7 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(3, 11);
-        // Execute
+    
         BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal(27), result);
@@ -381,7 +380,7 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(2, 5);
-        // Execute
+      
         BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal(0), result);
@@ -403,7 +402,7 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(14, 12);
-        // Execute
+      
         BigDecimal result = rate.calculate(periodStay);
     }
 
@@ -423,7 +422,7 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(3, 7);
-        // Execute
+      
         BigDecimal result = rate.calculate(periodStay);
     }
 }
