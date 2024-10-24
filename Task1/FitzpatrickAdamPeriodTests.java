@@ -1,13 +1,10 @@
 package cm;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.EmptySource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.NullString;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FitzpatrickAdamTestTask1 {
+public class FitzpatrickAdamPeriodTests {
     // Period(int start, int end) Tests
     @Test
     void startLessThanZero() {
@@ -122,4 +119,10 @@ public class FitzpatrickAdamTestTask1 {
         assertFalse(passedPeriod.overlaps(currentPeriod));
     }
 
+    @Test
+    void nullCurrentPeriod() {
+        cm.Period passedPeriod = new cm.Period(14,22);
+        cm.Period currentPeriod = null;
+        passedPeriod.overlaps(currentPeriod);
+    }
 }
