@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FitzpatrickAdamRateTests {
-
     @Test
     void validCarParkKind() {
         cm.CarParkKind kind = cm.CarParkKind.STAFF;
@@ -27,6 +26,7 @@ public class FitzpatrickAdamRateTests {
 
         // Creating a cm.CarParkKind.Rate object
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertNotNull(rate, "CarParkKind should be valid");
     }
 
     @Test
@@ -122,6 +122,8 @@ public class FitzpatrickAdamRateTests {
         BigDecimal reducedRate = new BigDecimal(6);
 
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+
+        assertNotNull(rate);
     }
 
     @Test
@@ -140,6 +142,8 @@ public class FitzpatrickAdamRateTests {
         BigDecimal reducedRate = new BigDecimal(5);
 
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+
+
     }
 
     @Test
@@ -173,7 +177,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(10);
         BigDecimal reducedRate = new BigDecimal(6);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "CarParkKind should be invalid");
     }
 
     @Test
@@ -191,7 +197,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(6);
         BigDecimal reducedRate = new BigDecimal(2);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "reducedPeriods should overlap");
     }
 
     @Test
@@ -209,7 +217,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(0);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "normalPeriods should overlap");
     }
 
     @Test
@@ -225,7 +235,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(0);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "reducedPeriods should overlap normalPeriods");
     }
 
     @Test
@@ -243,7 +255,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(14);
         BigDecimal reducedRate = new BigDecimal(6);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "normalRate should be greater than ten");
     }
 
     @Test
@@ -402,8 +416,10 @@ public class FitzpatrickAdamRateTests {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(14, 12);
-      
-        BigDecimal result = rate.calculate(periodStay);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> new Period(14, 12),
+                "Overlapping periods between normal and reduced periods should throw an exception.");
     }
 
     @Test
@@ -419,10 +435,8 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(7);
         BigDecimal reducedRate = new BigDecimal(4);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        Period periodStay = new Period(3, 7);
-      
-        BigDecimal result = rate.calculate(periodStay);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "Overlapping periods between normal and reduced periods should throw an exception.");
     }
 }

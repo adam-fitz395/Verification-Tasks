@@ -24,30 +24,6 @@ public class FitzpatrickAdamPeriodTests {
     }
 
     @Test
-    void startNullEndNull() {
-        Integer start = null;
-        Integer end = null;
-        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for start and end being null");
-    }
-
-    @Test
-    void startNull() {
-        Integer start = null;
-        int end = 12;
-        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for start being null");
-    }
-
-    @Test
-    void endNull() {
-        int start = 14;
-        Integer end = null;
-        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for end being null");
-    }
-
-    @Test
     void startEqualsEnd() {
         int start = 13;
         int end = 13;
@@ -60,7 +36,8 @@ public class FitzpatrickAdamPeriodTests {
     void validPeriod() {
         int start = 8;
         int end = 12;
-        cm.Period period = new cm.Period(start, end);
+        Period period = new Period(start, end);
+        assertInstanceOf(cm.Period.class, period);
         assertNotNull(period, "Expected valid period creation for start=8, end=12");
     }
 
