@@ -16,7 +16,7 @@ public class FitzpatrickAdamRateTests {
         reducedPeriods.add(new cm.Period(12, 14));
         reducedPeriods.add(new cm.Period(18, 20));
 
-        ArrayList<cm.Period> normalPeriods = new java.util.ArrayList<cm.Period>();
+        ArrayList<cm.Period> normalPeriods = new ArrayList<cm.Period>();
         normalPeriods.add(new cm.Period(8, 12));
         normalPeriods.add(new cm.Period(14, 18));
 
@@ -24,9 +24,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(2);
 
-        // Creating a cm.CarParkKind.Rate object
+        // Creating a cm.cm.CarParkKind.cm.Rate object
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-        assertNotNull(rate, "CarParkKind should be valid");
+        assertNotNull(rate, "cm.CarParkKind should be valid");
     }
 
     @Test
@@ -257,7 +257,7 @@ public class FitzpatrickAdamRateTests {
 
         assertThrows(IllegalArgumentException.class,
                 () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "normalRate should be greater than ten");
+                "normalRate should be greater than 10");
     }
 
     @Test
@@ -275,7 +275,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(-8);
         BigDecimal reducedRate = new BigDecimal(8);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "normalRate should be less than 0");
     }
 
     @Test
@@ -293,7 +295,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(10);
         BigDecimal reducedRate = new BigDecimal(11);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "reducedRate should be greater than 10");
     }
 
     @Test
@@ -311,7 +315,9 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(7);
         BigDecimal reducedRate = new BigDecimal(-4);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "reducedRate should be less than 0");
     }
 
     @Test
@@ -328,10 +334,12 @@ public class FitzpatrickAdamRateTests {
         BigDecimal normalRate = new BigDecimal(7);
         BigDecimal reducedRate = new BigDecimal(9);
 
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+        assertThrows(IllegalArgumentException.class,
+                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
+                "normalRate should be less than reducedRate");
     }
 
-    // calculate(cm.Period periodStay) Tests
+    // calculate(cm.cm.Period periodStay) Tests
     @Test
     void validStayPeriod() {
         cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
@@ -353,7 +361,6 @@ public class FitzpatrickAdamRateTests {
 
         assertEquals(new BigDecimal(12), result);
     }
-
     @Test
     void mixedStay() {
         cm.CarParkKind kind = cm.CarParkKind.VISITOR;
@@ -415,11 +422,9 @@ public class FitzpatrickAdamRateTests {
 
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
-        Period periodStay = new Period(14, 12);
-
         assertThrows(IllegalArgumentException.class,
                 () -> new Period(14, 12),
-                "Overlapping periods between normal and reduced periods should throw an exception.");
+                "stayPeriod should be invalid");
     }
 
     @Test
