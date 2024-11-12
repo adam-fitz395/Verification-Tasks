@@ -2,446 +2,87 @@ package cm;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FitzpatrickAdamRateTests {
+public class FitzpatrickAdamPeriodTests {
+
+    // cm.cm.Period(int start, int end) Tests
     @Test
-    void validCarParkKind() {
-        cm.CarParkKind kind = cm.CarParkKind.STAFF;
-
-        // Creating valid reduced and normal periods
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(12, 14));
-        reducedPeriods.add(new cm.Period(18, 20));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<cm.Period>();
-        normalPeriods.add(new cm.Period(8, 12));
-        normalPeriods.add(new cm.Period(14, 18));
-
-        // Initializing BigDecimal rates
-        BigDecimal normalRate = new BigDecimal(5);
-        BigDecimal reducedRate = new BigDecimal(2);
-
-        // Creating a cm.cm.CarParkKind.cm.Rate object
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-        assertNotNull(rate, "cm.CarParkKind should be valid");
+    void startLessThanZero() {
+        int start = -1;
+        int end = 14;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "Expected IllegalArgumentException for start < 0");
     }
 
     @Test
-    void validReducedPeriods() {
-        cm.CarParkKind kind = cm.CarParkKind.STUDENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(6, 10));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(10, 12));
-
-      
-        BigDecimal normalRate = new BigDecimal(7);
-        BigDecimal reducedRate = new BigDecimal(3);
-
-    
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+    void endLessThanZero() {
+        int start = 5;
+        int end = -1;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "End should be less than 0");
     }
 
     @Test
-    void validNormalPeriods() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-     
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(9, 11));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(15, 17));
-
-       
-        BigDecimal normalRate = new BigDecimal(9);
-        BigDecimal reducedRate = new BigDecimal(6);
-
-  
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+    void endGreaterThanTwentyFour() {
+        int start = 15;
+        int end = 25;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "Expected IllegalArgumentException for end > 24");
     }
 
     @Test
-    void normalRateLessThanEqualTen() {
-        cm.CarParkKind kind = cm.CarParkKind.VISITOR;
-
-    
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 3));
-        reducedPeriods.add(new cm.Period(18, 20));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(4, 9));
-        normalPeriods.add(new Period(14, 17));
-
-   
-        BigDecimal normalRate = new BigDecimal(10);
-        BigDecimal reducedRate = new BigDecimal(0);
-
-   
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-    }
-
-    @Test
-    void normalRateGreaterThanEqualZero() {
-        cm.CarParkKind kind = cm.CarParkKind.STUDENT;
-
-        
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(3, 6));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(8, 12));
-
-      
-        BigDecimal normalRate = new BigDecimal(4);
-        BigDecimal reducedRate = new BigDecimal(1);
-
-    
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-    }
-
-    @Test
-    void reducedRateGreaterThanEqualTen() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(12, 19));
-        reducedPeriods.add(new cm.Period(19, 20));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(1, 12));
-        normalPeriods.add(new cm.Period(20, 24));
-
-        BigDecimal normalRate = new BigDecimal(9);
-        BigDecimal reducedRate = new BigDecimal(6);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        assertNotNull(rate);
-    }
-
-    @Test
-    void reducedRateLessThanEqualZero() {
-        cm.CarParkKind kind = cm.CarParkKind.STAFF;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 5));
-        reducedPeriods.add(new cm.Period(9, 12));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(5, 9));
-        normalPeriods.add(new cm.Period(12, 18));
-
-        BigDecimal normalRate = new BigDecimal(8);
-        BigDecimal reducedRate = new BigDecimal(5);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
+    void startGreaterThan24() {
+        int start = 25;
+        int end = 12;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "Expected IllegalArgumentException for end > 24");
 
     }
 
     @Test
-    void reducedLessThanNormal() {
-        cm.CarParkKind kind = cm.CarParkKind.VISITOR;
+    void startEqualsEnd() {
+        int start = 13;
+        int end = 13;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "Expected IllegalArgumentException for start == end");
+    }
 
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(12, 19));
+    // Valid cases
+    @Test
+    void validPeriod() {
+        int start = 8;
+        int end = 12;
+        Period period = new Period(start, end);
+        assertInstanceOf(cm.Period.class, period);
+        assertNotNull(period, "Expected valid period creation for start=8, end=12");
+    }
 
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(1, 11));
-
-        BigDecimal normalRate = new BigDecimal(5);
-        BigDecimal reducedRate = new BigDecimal(4);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+    // duration() Tests
+    @Test
+    void maximumPeriod() {
+        cm.Period period = new cm.Period(0, 24);
+        assertEquals(24, period.duration(), "Expected duration of 24 for period (0, 24)");
     }
 
     @Test
-    void invalidCarParkKind() {
-        cm.CarParkKind kind = null;
+    void minimumPeriod() {
+        cm.Period period = new cm.Period(1, 2);
+        assertEquals(1, period.duration(), "Expected duration of 1 for period (1, 2)");
+    }
 
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 9));
-        reducedPeriods.add(new cm.Period(18, 23));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(9, 12));
-        normalPeriods.add(new cm.Period(12, 18));
-
-        BigDecimal normalRate = new BigDecimal(10);
-        BigDecimal reducedRate = new BigDecimal(6);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "CarParkKind should be invalid");
+    // overlaps (cm.Period period) Tests
+    @Test
+    void periodOverlaps() {
+        cm.Period passedPeriod = new cm.Period(7, 10);
+        cm.Period currentPeriod = new cm.Period(9, 11);
+        assertTrue(passedPeriod.overlaps(currentPeriod), "Expected overlap between periods (7, 10) and (9, 11)");
     }
 
     @Test
-    void overlappingReducedPeriods() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(7, 12));
-        reducedPeriods.add(new cm.Period(8, 13));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(1, 7));
-        normalPeriods.add(new cm.Period(13, 24));
-
-        BigDecimal normalRate = new BigDecimal(6);
-        BigDecimal reducedRate = new BigDecimal(2);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "reducedPeriods should overlap");
-    }
-
-    @Test
-    void overlappingNormalPeriods() {
-        cm.CarParkKind kind = cm.CarParkKind.STUDENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(3, 6));
-        reducedPeriods.add(new cm.Period(8, 9));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(10, 14));
-        normalPeriods.add(new cm.Period(12, 16));
-
-        BigDecimal normalRate = new BigDecimal(5);
-        BigDecimal reducedRate = new BigDecimal(0);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "normalPeriods should overlap");
-    }
-
-    @Test
-    void reducedOverlapsNormal() {
-        cm.CarParkKind kind = cm.CarParkKind.VISITOR;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(9, 17));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(13, 19));
-
-        BigDecimal normalRate = new BigDecimal(5);
-        BigDecimal reducedRate = new BigDecimal(0);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "reducedPeriods should overlap normalPeriods");
-    }
-
-    @Test
-    void normalRateGreaterThanTen() {
-        cm.CarParkKind kind = cm.CarParkKind.VISITOR;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 6));
-        reducedPeriods.add(new cm.Period(7, 8));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(9, 13));
-        normalPeriods.add(new cm.Period(18, 23));
-
-        BigDecimal normalRate = new BigDecimal(14);
-        BigDecimal reducedRate = new BigDecimal(6);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "normalRate should be greater than 10");
-    }
-
-    @Test
-    void normalRateLessThanZero() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 2));
-        reducedPeriods.add(new cm.Period(9, 10));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(3, 5));
-        normalPeriods.add(new cm.Period(7, 8));
-
-        BigDecimal normalRate = new BigDecimal(-8);
-        BigDecimal reducedRate = new BigDecimal(8);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "normalRate should be less than 0");
-    }
-
-    @Test
-    void reducedRateGreaterThanTen() {
-        cm.CarParkKind kind = cm.CarParkKind.STAFF;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(0, 1));
-        reducedPeriods.add(new cm.Period(10, 12));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(2, 4));
-        normalPeriods.add(new cm.Period(6, 9));
-
-        BigDecimal normalRate = new BigDecimal(10);
-        BigDecimal reducedRate = new BigDecimal(11);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "reducedRate should be greater than 10");
-    }
-
-    @Test
-    void reducedRateLessThanZero() {
-        cm.CarParkKind kind = cm.CarParkKind.STUDENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 3));
-        reducedPeriods.add(new cm.Period(10, 12));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(4, 6));
-        normalPeriods.add(new cm.Period(8, 9));
-
-        BigDecimal normalRate = new BigDecimal(7);
-        BigDecimal reducedRate = new BigDecimal(-4);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "reducedRate should be less than 0");
-    }
-
-    @Test
-    void normalLessThanReduced() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 4));
-        reducedPeriods.add(new cm.Period(8, 10));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(5, 7));
-
-        BigDecimal normalRate = new BigDecimal(7);
-        BigDecimal reducedRate = new BigDecimal(9);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "normalRate should be less than reducedRate");
-    }
-
-    // calculate(cm.cm.Period periodStay) Tests
-    @Test
-    void validStayPeriod() {
-        cm.CarParkKind kind = cm.CarParkKind.MANAGEMENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(1, 8));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(9, 15));
-
-        BigDecimal normalRate = new BigDecimal(6);
-        BigDecimal reducedRate = new BigDecimal(4);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        Period periodStay = new Period(12, 14);
-    
-        BigDecimal result = rate.calculate(periodStay);
-
-        assertEquals(new BigDecimal(12), result);
-    }
-    @Test
-    void mixedStay() {
-        cm.CarParkKind kind = cm.CarParkKind.VISITOR;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(2, 4));
-        reducedPeriods.add(new cm.Period(7, 9));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(5, 6));
-        normalPeriods.add(new cm.Period(10, 12));
-
-        BigDecimal normalRate = new BigDecimal(6);
-        BigDecimal reducedRate = new BigDecimal(3);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        Period periodStay = new Period(3, 11);
-    
-        BigDecimal result = rate.calculate(periodStay);
-
-        assertEquals(new BigDecimal(27), result);
-    }
-
-    @Test
-    void freePeriod(){
-        cm.CarParkKind kind = cm.CarParkKind.STUDENT;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(6, 8));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(10, 12));
-
-        BigDecimal normalRate = new BigDecimal(5);
-        BigDecimal reducedRate = new BigDecimal(2);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        Period periodStay = new Period(2, 5);
-      
-        BigDecimal result = rate.calculate(periodStay);
-
-        assertEquals(new BigDecimal(0), result);
-    }
-
-    @Test
-    void invalidStayPeriod() {
-        cm.CarParkKind kind = cm.CarParkKind.STAFF;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(6, 10));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(14, 17));
-
-        BigDecimal normalRate = new BigDecimal(7);
-        BigDecimal reducedRate = new BigDecimal(2);
-
-        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Period(14, 12),
-                "stayPeriod should be invalid");
-    }
-
-    @Test
-    void overlappingPeriods() {
-        cm.CarParkKind kind = cm.CarParkKind.STAFF;
-
-        ArrayList<cm.Period> reducedPeriods = new ArrayList<>();
-        reducedPeriods.add(new cm.Period(2, 6));
-
-        ArrayList<cm.Period> normalPeriods = new ArrayList<>();
-        normalPeriods.add(new cm.Period(5, 8));
-
-        BigDecimal normalRate = new BigDecimal(7);
-        BigDecimal reducedRate = new BigDecimal(4);
-
-        assertThrows(IllegalArgumentException.class,
-                () -> new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate),
-                "Overlapping periods between normal and reduced periods should throw an exception.");
+    void noOverlap() {
+        cm.Period passedPeriod = new cm.Period(2, 6);
+        cm.Period currentPeriod = new cm.Period(8, 14);
+        assertFalse(passedPeriod.overlaps(currentPeriod), "Expected no overlap between periods (2, 6) and (8, 14)");
     }
 }
