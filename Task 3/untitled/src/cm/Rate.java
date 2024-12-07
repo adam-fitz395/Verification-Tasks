@@ -105,19 +105,32 @@ public class Rate {
 
         switch (kind) {
             case VISITOR:
-                return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+                BigDecimal visitorTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+                BigDecimal visitorMinDiscount = new BigDecimal("10");
+
+                if (visitorTotal.compareTo(visitorMinDiscount) > 0)
+                {
+                    visitorTotal = visitorTotal.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+                }
+
+                return visitorTotal;
             case MANAGEMENT:
-                BigDecimal thisTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+                BigDecimal managementTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
                 BigDecimal minimumPayable = new BigDecimal(4);
 
-                if(thisTotal.compareTo(minimumPayable) < 0) {
-                    thisTotal = new BigDecimal(4);
+                if(managementTotal.compareTo(minimumPayable) < 0) {
+                    managementTotal = new BigDecimal(4);
                 }
 
-                return thisTotal;
+                return managementTotal;
+            case STUDENT:
+                BigDecimal studentTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+
+
         }
 
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
