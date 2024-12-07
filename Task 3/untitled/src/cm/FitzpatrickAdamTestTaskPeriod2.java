@@ -91,4 +91,14 @@ public class FitzpatrickAdamTestTaskPeriod2 {
         Period currentPeriod = new Period(8, 14);
         assertFalse(passedPeriod.overlaps(currentPeriod), "expected no overlap between periods");
     }
+
+    @Test
+    void nullOverlap() {
+        Period passedPeriod = new Period(1, 8);
+        Period currentPeriod = null;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            passedPeriod.overlaps(currentPeriod);
+        });
+    }
 }

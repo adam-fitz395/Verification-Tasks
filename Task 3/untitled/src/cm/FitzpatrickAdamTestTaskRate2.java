@@ -485,13 +485,13 @@ public class FitzpatrickAdamTestTaskRate2 {
 
         Period periodStay = new Period(12, 14);
 
-        BigDecimal result = rate.calculate(periodStay);
+        BigDecimal result = rate.calculate(periodStay, kind);
 
         assertEquals(new BigDecimal(12), result);
     }
     @Test
     void mixedStay() {
-        CarParkKind kind = CarParkKind.MANAGEMENT;
+        CarParkKind kind = CarParkKind.VISITOR;
 
         ArrayList<Period> reducedPeriods = new ArrayList<>();
         reducedPeriods.add(new Period(2, 4));
@@ -508,9 +508,9 @@ public class FitzpatrickAdamTestTaskRate2 {
 
         Period periodStay = new Period(3, 11);
 
-        BigDecimal result = rate.calculate(periodStay);
+        BigDecimal result = rate.calculate(periodStay, kind);
 
-        assertEquals(new BigDecimal(27), result);
+        assertEquals(new BigDecimal(5.5), result);
     }
 
     @Test
@@ -530,7 +530,7 @@ public class FitzpatrickAdamTestTaskRate2 {
 
         Period periodStay = new Period(2, 5);
 
-        BigDecimal result = rate.calculate(periodStay);
+        BigDecimal result = rate.calculate(periodStay, kind);
 
         assertEquals(new BigDecimal(0), result);
     }

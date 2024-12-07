@@ -96,12 +96,18 @@ public class Rate {
         }
         return isValid;
     }
-    public BigDecimal calculate(Period periodStay) {
+    public BigDecimal calculate(Period periodStay, CarParkKind kind) {
         if (periodStay == null) {
             throw new IllegalArgumentException("periodStay cannot be null");
         }
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
+
+        switch(kind) {
+            case VISITOR:
+                return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+        }
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
     }
