@@ -107,6 +107,17 @@ public class Rate {
             case VISITOR:
                 return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                         this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+            case MANAGEMENT:
+                BigDecimal thisTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+
+                BigDecimal minimumPayable = new BigDecimal(4);
+
+                if(thisTotal.compareTo(minimumPayable) < 0) {
+                    thisTotal = new BigDecimal(4);
+                }
+
+                return thisTotal;
         }
 
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
