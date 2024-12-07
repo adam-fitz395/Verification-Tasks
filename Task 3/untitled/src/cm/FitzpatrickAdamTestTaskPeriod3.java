@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FitzpatrickAdamTestTaskPeriod2 {
+public class FitzpatrickAdamTestTaskPeriod3 {
 
     // cm.Period(int start, int end) Tests
     @Test

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b80c921-7980-4177-a14f-5931b745e6a5" name="Changes" comment="" />
+    <list default="true" id="7b80c921-7980-4177-a14f-5931b745e6a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +15,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "adam-fitz395"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;adam-fitz395&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/adam-fitz395/Verification-Tasks.git",
-    "accountId": "c6bd3c70-d5f0-4998-b01b-03860c98a545"
+    "accountId": "7ea9d012-1f9d-4f1e-b4d8-ec7fb46d4c06"
   }
 }]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ptd9rOoCom8OcyUyfe2CNfdKZa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,7 +50,13 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/adamfitz395/Documents/GitHub/Verification-Tasks/Task 3/untitled"
+    "last_opened_file_path": "C:/Users/VitoF/OneDrive/Documents/GitHub/Verification-Tasks/Task 3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -58,7 +66,7 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.cm in untitled">
-    <configuration name="FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FitzpatrickAdamTestTaskRate3.managementCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
@@ -67,14 +75,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cm" />
-      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate3" />
       <option name="METHOD_NAME" value="managementCorrectCalculate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FitzpatrickAdamTestTaskRate2.staffCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FitzpatrickAdamTestTaskRate3.staffCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
@@ -83,14 +91,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cm" />
-      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate3" />
       <option name="METHOD_NAME" value="staffCorrectCalculation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FitzpatrickAdamTestTaskRate3.studentCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
@@ -99,14 +107,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cm" />
-      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate3" />
       <option name="METHOD_NAME" value="studentCorrectCalculation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FitzpatrickAdamTestTaskRate3.visitorCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
         <pattern>
@@ -115,7 +123,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cm" />
-      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate3" />
       <option name="METHOD_NAME" value="visitorCorrectCalculate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -139,12 +147,20 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.cm in untitled" />
-        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation" />
-        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" />
-        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" />
-        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" />
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate3.staffCorrectCalculation" />
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate3.studentCorrectCalculation" />
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate3.visitorCorrectCalculate" />
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate3.managementCorrectCalculate" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -154,8 +170,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733589156643</updated>
+      <workItem from="1733613257548" duration="952000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Task_3$cm_in_untitled.ic" NAME="cm in untitled Coverage Results" MODIFIED="1733592827953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
