@@ -102,56 +102,58 @@ public class Rate {
         }
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
+        BigDecimal thisPrice = null;
+        
+        if (kind == CarParkKind.VISITOR) {
+            BigDecimal visitorTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+            BigDecimal visitorMinDiscount = new BigDecimal("10");
 
-        switch (kind) {
-            case VISITOR:
-                BigDecimal visitorTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-                BigDecimal visitorMinDiscount = new BigDecimal("10");
-
-                if (visitorTotal.compareTo(visitorMinDiscount) > 0)
-                {
-                    visitorTotal = visitorTotal.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
-                }
-
-                return visitorTotal;
-            case MANAGEMENT:
-                BigDecimal managementTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-
-                BigDecimal minimumPayable = new BigDecimal(4);
-
-                if(managementTotal.compareTo(minimumPayable) < 0) {
-                    managementTotal = new BigDecimal(4);
-                }
-
-                return managementTotal;
-            case STUDENT:
-                BigDecimal studentTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-
-                BigDecimal minimumDiscount = new BigDecimal("5.50");
-
-                if (studentTotal.compareTo(minimumDiscount) > 0)
-                {
-                    studentTotal = studentTotal.multiply(BigDecimal.valueOf(.75));
-                }
-
-                return studentTotal;
-            case STAFF:
-                BigDecimal staffTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-
-                BigDecimal staffMaximum = new BigDecimal("16");
-
-                if (staffTotal.compareTo(staffMaximum) > 0) {
-                    staffTotal = new BigDecimal("16");
-                }
-
-                return staffTotal;
+            if (visitorTotal.compareTo(visitorMinDiscount) > 0) {
+                visitorTotal = visitorTotal.subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
+            }
+            
+            thisPrice = visitorTotal;
         }
+        
+        else if (kind == CarParkKind.MANAGEMENT) {
+            BigDecimal managementTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+            BigDecimal minimumPayable = new BigDecimal(4);
+
+            if (managementTotal.compareTo(minimumPayable) < 0) {
+                managementTotal = new BigDecimal(4);
+            }
+            
+            thisPrice = managementTotal;
+        }
+        
+        else if (kind == CarParkKind.STUDENT) {
+            BigDecimal studentTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+
+            BigDecimal minimumDiscount = new BigDecimal("5.50");
+
+            if (studentTotal.compareTo(minimumDiscount) > 0) {
+                studentTotal = studentTotal.multiply(BigDecimal.valueOf(.75));
+            }
+            
+            thisPrice = studentTotal;
+        }
+        
+        else if (kind == CarParkKind.STAFF) {
+            BigDecimal staffTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                    this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
+
+            BigDecimal staffMaximum = new BigDecimal("16");
+
+            if (staffTotal.compareTo(staffMaximum) > 0) {
+                staffTotal = new BigDecimal("16");
+            }
+            
+            thisPrice = staffTotal;
+        }
+        return thisPrice;
     }
 }

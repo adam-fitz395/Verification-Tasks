@@ -57,7 +57,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation">
+  <component name="RunManager" selected="JUnit.cm in untitled">
     <configuration name="FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
@@ -138,9 +138,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.cm in untitled" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" />
-        <item itemvalue="JUnit.cm in untitled" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" />
       </list>
