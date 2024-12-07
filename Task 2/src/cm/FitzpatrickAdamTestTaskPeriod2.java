@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FitzpatrickAdamPeriodTests {
+public class FitzpatrickAdamTestTaskPeriod2 {
 
-    // cm.cm.Period(int start, int end) Tests
+    // cm.Period(int start, int end) Tests
     @Test
     void startLessThanZero() {
         int start = -1;
         int end = 14;
         assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for start < 0");
+                "start should be less than 0");
     }
 
     @Test
@@ -20,7 +20,7 @@ public class FitzpatrickAdamPeriodTests {
         int start = 5;
         int end = -1;
         assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "End should be less than 0");
+                "end should be less than 0");
     }
 
     @Test
@@ -28,15 +28,15 @@ public class FitzpatrickAdamPeriodTests {
         int start = 15;
         int end = 25;
         assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for end > 24");
+                "end should be greater than 24");
     }
 
     @Test
-    void startGreaterThan24() {
+    void startGreaterThanTwentyFour() {
         int start = 25;
         int end = 12;
         assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for end > 24");
+                "start should be greater than 24");
 
     }
 
@@ -45,30 +45,36 @@ public class FitzpatrickAdamPeriodTests {
         int start = 13;
         int end = 13;
         assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
-                "Expected IllegalArgumentException for start == end");
+                "start should be equal to end");
     }
 
-    // Valid cases
+    @Test
+    void startAndEndInvalid() {
+        int start = 26;
+        int end = 27;
+        assertThrows(IllegalArgumentException.class, () -> new cm.Period(start, end),
+                "start and end should be invalid");
+    }
+
     @Test
     void validPeriod() {
         int start = 8;
         int end = 12;
         Period period = new Period(start, end);
-        assertInstanceOf(cm.Period.class, period);
-        assertNotNull(period, "Expected valid period creation for start=8, end=12");
+        assertNotNull(period, "Period should not be null");
     }
 
     // duration() Tests
     @Test
     void maximumPeriod() {
         cm.Period period = new cm.Period(0, 24);
-        assertEquals(24, period.duration(), "Expected duration of 24 for period (0, 24)");
+        assertEquals(24, period.duration(), "duration should be equal to 24");
     }
 
     @Test
     void minimumPeriod() {
         cm.Period period = new cm.Period(1, 2);
-        assertEquals(1, period.duration(), "Expected duration of 1 for period (1, 2)");
+        assertEquals(1, period.duration(), "duration should be equal to 1");
     }
 
     // overlaps (cm.Period period) Tests
@@ -76,13 +82,13 @@ public class FitzpatrickAdamPeriodTests {
     void periodOverlaps() {
         cm.Period passedPeriod = new cm.Period(7, 10);
         cm.Period currentPeriod = new cm.Period(9, 11);
-        assertTrue(passedPeriod.overlaps(currentPeriod), "Expected overlap between periods (7, 10) and (9, 11)");
+        assertTrue(passedPeriod.overlaps(currentPeriod), "expected overlap between periods");
     }
 
     @Test
     void noOverlap() {
         cm.Period passedPeriod = new cm.Period(2, 6);
         cm.Period currentPeriod = new cm.Period(8, 14);
-        assertFalse(passedPeriod.overlaps(currentPeriod), "Expected no overlap between periods (2, 6) and (8, 14)");
+        assertFalse(passedPeriod.overlaps(currentPeriod), "expected no overlap between periods");
     }
 }
