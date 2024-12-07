@@ -103,13 +103,13 @@ public class Rate {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
 
-        switch(kind) {
+        switch (kind) {
             case VISITOR:
                 return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                         this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours))).subtract(BigDecimal.valueOf(10)).multiply(BigDecimal.valueOf(.5));
         }
+
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
     }
-
 }

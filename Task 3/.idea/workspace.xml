@@ -36,6 +36,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate.executor": "Run",
     "JUnit.cm in untitled.executor": "Coverage",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -53,7 +54,23 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate">
+    <configuration name="FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cm" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="METHOD_NAME" value="visitorCorrectCalculate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="cm in untitled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
@@ -70,6 +87,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" />
         <item itemvalue="JUnit.cm in untitled" />
       </list>
     </recent_temporary>
@@ -86,7 +104,7 @@
     <servers />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Task_3$cm_in_untitled.ic" NAME="cm in untitled Coverage Results" MODIFIED="1733591940464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+    <SUITE FILE_PATH="coverage/Task_3$cm_in_untitled.ic" NAME="cm in untitled Coverage Results" MODIFIED="1733592827953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>cm.*</FILTER>
     </SUITE>
   </component>

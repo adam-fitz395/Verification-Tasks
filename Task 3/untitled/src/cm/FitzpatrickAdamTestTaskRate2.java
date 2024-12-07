@@ -554,4 +554,24 @@ public class FitzpatrickAdamTestTaskRate2 {
                 () -> new Period(14, 12),
                 "stayPeriod should be invalid");
     }
+
+    @Test
+    void visitorCorrectCalculate() {
+        CarParkKind kind = CarParkKind.VISITOR;
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(new Period(7,8));
+
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(new Period(9, 12));
+
+        BigDecimal normalRate = new BigDecimal(8);
+        BigDecimal reducedRate = new BigDecimal(4);
+
+        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+
+        Period periodStay = new Period(7, 12);
+
+        assertEquals(new BigDecimal("9.0"), rate.calculate(periodStay, kind));
+    }
 }
+
