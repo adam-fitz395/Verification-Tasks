@@ -573,5 +573,24 @@ public class FitzpatrickAdamTestTaskRate2 {
 
         assertEquals(new BigDecimal("9.0"), rate.calculate(periodStay, kind));
     }
+
+    @Test
+    void managementCorrectCalculate() {
+        CarParkKind kind = CarParkKind.MANAGEMENT;
+
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(new Period(1,2));
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(new Period(2,3));
+
+        BigDecimal normalRate = new BigDecimal(2);
+        BigDecimal reducedRate = new BigDecimal(1);
+
+        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+
+        Period periodStay = new Period(1,3);
+
+        assertEquals(new BigDecimal(4), rate.calculate(periodStay, kind));
+    }
 }
 
