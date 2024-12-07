@@ -593,6 +593,7 @@ public class FitzpatrickAdamTestTaskRate2 {
         assertEquals(new BigDecimal(4), rate.calculate(periodStay, kind));
     }
 
+    @Test
     void studentCorrectCalculation() {
         CarParkKind kind = CarParkKind.STUDENT;
 
@@ -609,6 +610,25 @@ public class FitzpatrickAdamTestTaskRate2 {
         Period periodStay = new Period(11,17);
 
         assertEquals(new BigDecimal("7.50"), rate.calculate(periodStay, kind));
+    }
+
+    @Test
+    void staffCorrectCalculation() {
+        CarParkKind kind = CarParkKind.STAFF;
+
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        reducedPeriods.add(new Period(4,7));
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        normalPeriods.add(new Period(9,12));
+
+        BigDecimal normalRate = new BigDecimal(4);
+        BigDecimal reducedRate = new BigDecimal(2);
+
+        Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
+
+        Period periodStay = new Period(4,12);
+
+        assertEquals(new BigDecimal("16"), rate.calculate(periodStay, kind));
     }
 }
 

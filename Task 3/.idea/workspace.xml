@@ -38,7 +38,7 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.FitzpatrickAdamTestTaskRate2.managementCorrectCalculate.executor": "Run",
     "JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate.executor": "Run",
-    "JUnit.cm in untitled.executor": "Coverage",
+    "JUnit.cm in untitled.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -55,7 +55,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate">
+  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation">
     <configuration name="FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
@@ -67,6 +67,22 @@
       <option name="PACKAGE_NAME" value="cm" />
       <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
       <option name="METHOD_NAME" value="managementCorrectCalculate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cm" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="METHOD_NAME" value="studentCorrectCalculation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,9 +120,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" />
+        <item itemvalue="JUnit.cm in untitled" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" />
-        <item itemvalue="JUnit.cm in untitled" />
       </list>
     </recent_temporary>
   </component>

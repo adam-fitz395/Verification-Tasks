@@ -130,6 +130,15 @@ public class Rate {
                 BigDecimal studentTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                         this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
+                BigDecimal minimumDiscount = new BigDecimal("5.50");
+
+                if (studentTotal.compareTo(minimumDiscount) > 0)
+                {
+                    studentTotal = studentTotal.multiply(BigDecimal.valueOf(.75));
+                }
+
+                return studentTotal;
+
 
         }
 
