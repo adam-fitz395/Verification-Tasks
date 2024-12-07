@@ -138,8 +138,17 @@ public class Rate {
                 }
 
                 return studentTotal;
+            case STAFF:
+                BigDecimal staffTotal = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+                        this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
+                BigDecimal staffMaximum = new BigDecimal("16");
 
+                if (staffTotal.compareTo(staffMaximum) > 0) {
+                    staffTotal = new BigDecimal("16");
+                }
+
+                return staffTotal;
         }
 
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(

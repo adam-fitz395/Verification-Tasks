@@ -37,6 +37,8 @@
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.FitzpatrickAdamTestTaskRate2.managementCorrectCalculate.executor": "Run",
+    "JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation.executor": "Run",
+    "JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation.executor": "Run",
     "JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate.executor": "Run",
     "JUnit.cm in untitled.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -55,7 +57,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation">
+  <component name="RunManager" selected="JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation">
     <configuration name="FitzpatrickAdamTestTaskRate2.managementCorrectCalculate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="untitled" />
       <extension name="coverage">
@@ -67,6 +69,22 @@
       <option name="PACKAGE_NAME" value="cm" />
       <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
       <option name="METHOD_NAME" value="managementCorrectCalculate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FitzpatrickAdamTestTaskRate2.staffCorrectCalculation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="untitled" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cm" />
+      <option name="MAIN_CLASS_NAME" value="cm.FitzpatrickAdamTestTaskRate2" />
+      <option name="METHOD_NAME" value="staffCorrectCalculation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,6 +138,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.staffCorrectCalculation" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.studentCorrectCalculation" />
         <item itemvalue="JUnit.cm in untitled" />
         <item itemvalue="JUnit.FitzpatrickAdamTestTaskRate2.visitorCorrectCalculate" />
