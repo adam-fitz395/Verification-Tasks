@@ -608,12 +608,7 @@ public class FitzpatrickAdamTestTaskRate3 {
         Rate rate = new Rate(kind, reducedPeriods, normalPeriods, normalRate, reducedRate);
 
         Period periodStay = new Period(11,17);
-
-<<<<<<< Updated upstream:Task 3/untitled/src/cm/FitzpatrickAdamTestTaskRate3.java
-        assertEquals(new BigDecimal("8.88"), rate.calculate(periodStay, kind));
-=======
-        assertEquals(new BigDecimal("7.50"), rate.calculate(periodStay));
->>>>>>> Stashed changes:Task 3/untitled/src/cm/FitzpatrickAdamTestTaskRate2.java
+        assertEquals(new BigDecimal("8.88"), rate.calculate(periodStay));
     }
 
     @Test
