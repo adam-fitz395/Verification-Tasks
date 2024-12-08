@@ -1,6 +1,7 @@
 package cm;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,10 +137,11 @@ public class Rate {
             BigDecimal minimumDiscount = new BigDecimal("5.50");
 
             if (studentTotal.compareTo(minimumDiscount) > 0) {
-                studentTotal = studentTotal.multiply(BigDecimal.valueOf(.75));
+                BigDecimal excessAmount = studentTotal.subtract(minimumDiscount);
+                studentTotal = minimumDiscount.add(excessAmount.multiply(new BigDecimal("0.75")));
             }
-            
-            thisPrice = studentTotal;
+
+            thisPrice = studentTotal.setScale(2, RoundingMode.HALF_UP);
         }
         
         else if (kind == CarParkKind.STAFF) {

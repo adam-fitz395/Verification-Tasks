@@ -532,7 +532,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         BigDecimal result = rate.calculate(periodStay, kind);
 
-        assertEquals(new BigDecimal(0), result);
+        assertEquals(new BigDecimal("0.00"), result);
     }
 
     @Test
@@ -609,7 +609,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(11,17);
 
-        assertEquals(new BigDecimal("7.50"), rate.calculate(periodStay, kind));
+        assertEquals(new BigDecimal("8.88"), rate.calculate(periodStay, kind));
     }
 
     @Test
