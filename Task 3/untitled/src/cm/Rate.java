@@ -97,7 +97,7 @@ public class Rate {
         }
         return isValid;
     }
-    public BigDecimal calculate(Period periodStay, CarParkKind kind) {
+    public BigDecimal calculate(Period periodStay) {
         if (periodStay == null) {
             throw new IllegalArgumentException("periodStay cannot be null");
         }

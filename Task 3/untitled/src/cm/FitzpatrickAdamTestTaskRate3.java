@@ -485,7 +485,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(12, 14);
 
-        BigDecimal result = rate.calculate(periodStay, kind);
+        BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal(12), result);
     }
@@ -508,7 +508,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(3, 11);
 
-        BigDecimal result = rate.calculate(periodStay, kind);
+        BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal(5.5), result);
     }
@@ -530,7 +530,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(2, 5);
 
-        BigDecimal result = rate.calculate(periodStay, kind);
+        BigDecimal result = rate.calculate(periodStay);
 
         assertEquals(new BigDecimal("0.00"), result);
     }
@@ -571,7 +571,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(7, 12);
 
-        assertEquals(new BigDecimal("9.0"), rate.calculate(periodStay, kind));
+        assertEquals(new BigDecimal("9.0"), rate.calculate(periodStay));
     }
 
     @Test
@@ -590,7 +590,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(1,3);
 
-        assertEquals(new BigDecimal(4), rate.calculate(periodStay, kind));
+        assertEquals(new BigDecimal(4), rate.calculate(periodStay));
     }
 
     @Test
@@ -609,7 +609,11 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(11,17);
 
+<<<<<<< Updated upstream:Task 3/untitled/src/cm/FitzpatrickAdamTestTaskRate3.java
         assertEquals(new BigDecimal("8.88"), rate.calculate(periodStay, kind));
+=======
+        assertEquals(new BigDecimal("7.50"), rate.calculate(periodStay));
+>>>>>>> Stashed changes:Task 3/untitled/src/cm/FitzpatrickAdamTestTaskRate2.java
     }
 
     @Test
@@ -628,7 +632,7 @@ public class FitzpatrickAdamTestTaskRate3 {
 
         Period periodStay = new Period(4,12);
 
-        assertEquals(new BigDecimal("16"), rate.calculate(periodStay, kind));
+        assertEquals(new BigDecimal("16"), rate.calculate(periodStay));
     }
 }
 
